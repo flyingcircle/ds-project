@@ -19,6 +19,8 @@ def to_timestamp(date_str, sec_num):
         timestamp += datetime.timedelta(days=1)
     return timestamp
 
+# should work from what I understand, but doesn't...
+# daily[categories] = daily[categories].astype("category")
 def make_categories(make_category, df):
     for category in make_category:
         df[category] = pd.Categorical(df[category])
