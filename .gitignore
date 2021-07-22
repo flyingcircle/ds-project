@@ -1,5 +1,5 @@
-.pycache
+__pycache__/
 data/
 .ipynb_checkpoints/
 .DS_Store
-__pycache__
+dask-worker-space/
