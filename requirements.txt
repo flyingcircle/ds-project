@@ -4,3 +4,4 @@ matplotlib
 sklearn
 tensorflow
 pandas
+tables

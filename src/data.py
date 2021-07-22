@@ -73,6 +73,11 @@ def get_transit_daily():
     daily_file = os.path.join(data_dir, "transit_daily.csv")
     return pd.read_csv(daily_file, low_memory=False)
 
+def get_mega_stop() :
+    data_dir = os.path.join(os.getcwd(), "..", "data")
+    daily_file = os.path.join(data_dir, "mega_stop_event.hdf")
+    return pd.read_hdf(daily_file, start=0, stop=10000)
+
 def get_data_subset(d, n):
     d = d.head(n)
     d = d.dropna(axis=0, subset=["service_date", "arrival_time", "deviance"])
@@ -126,8 +131,8 @@ def data_transforms(d):
     d = daily_compute_deltas(d)
     d = daily_compute_avg_speed(d)
     d = daily_remove_unused_columns(d)
-    d['label'] = d.groupby('trip_id')['deviance'].shift(-1)
-#     d['label'] = d.deviance.shift(-5) # making a prediction from 5 stops previously.
+    d['label'] = d.groupby('trip_number')['deviance'].shift(-1)
+    #d['label'] = d.deviance.shift(-5) # making a prediction from 5 stops previously.
     # https://stackoverflow.com/a/45745154/6293070
     d = d[~d.isin([np.nan, np.inf, -np.inf]).any(1)]
     return d
