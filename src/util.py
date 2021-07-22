@@ -2,6 +2,7 @@ import time
 import datetime
 import pandas as pd
 from matplotlib import pyplot as plt
+from IPython.display import Audio, display
 
 def to_timestamp(date_str, sec_num):
     gmtime = time.gmtime(sec_num)
@@ -38,3 +39,12 @@ def plot(r, l, preds, labels):
     plt.scatter(x, preds, label="predictions")
     plt.legend()
     plt.show()
+    
+def allDone():
+    url_done = "https://www.myinstants.com/media/sounds/magic_immune.mp3"
+    display(
+        Audio(
+            url=url_done,
+            autoplay=True,
+        )
+    )
