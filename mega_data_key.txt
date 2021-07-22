@@ -1,0 +1,81 @@
+Modified version of:
+
+Data Dictionary
+TriMet raw data.
+Miles J. Crumley, MS - Operations Analyst: Bus Transportation/Maintenance
+
+The data is in a hdf so it will need to be read in as such, for example:
+df = pd.read_hdf(path, '/df')
+It is a large file, so I recommending doing whatever transformations you want and then saving it to disk to save runtime. I'll update this once I've played with the data more.
+
+Table: mega_stop_event - TriMet Stop Event Data for route 9
+service_date - Service Date
+vehicle_number - Vehicle Number
+Train - Train or Block
+route_number - Route Number
+trip_number - TriMet Trip Number
+direction - Direction of Travel
+	0 = Outbound to Gresham TC
+	1 = Inbound to Portland
+service_key - Schedule
+		W = Weekday
+		S = Saturday
+		U = Sunday
+		X = Holiday/Extra Service
+stop_time - Scheduled Stop Time
+leave_time - Actual Time Left at Stop 
+arrive_time - Actual Time Arrived at Stop
+dwell - Time spent at the stop servicing the stop. This is most likely the time left - arrived and not the door open time. This was changed in Dec I think.
+location_id - TriMet Stop ID
+door - How many Doors Opened	
+	0 = None
+	1 = Front Door
+	2 = Front/Rear Door or Rear Only
+lift - Lift Deployed
+	1 = Lift Used
+ons - How many customers departed
+offs - How many customers alighted/departed
+estimated_load - Estimated load on the bus
+maximum_speed - Maximum speed between stop
+train_mileage - How far the bus has travelled in miles
+pattern_distance - Distance travelled based on the particular trip pattern
+x_coordinate - X Coordinate based on State Plane NAD83 (2913)
+y_coordinate - Y Coordinate based on State Plane NAD83 (2913)
+
+Added by Graham:
+day_of_year = 0 to 354
+day_of_week = 0 to 6, Monday=0, Sunday=6.
+arrival_deviance = "stop_time" - "arrive_time"
+arrive_deviance_departure_delta = "arrival_deviance" + "leave_time" - "arrive_time"
+time_cat_arrive_time, time_cat_leave_time, time_cat_stop_time = 
+	minutes_per_time_cat = 5
+    	times = ["stop_time", "arrive_time", "leave_time"]
+	time_cats = ["time_cat_" + x for x in times]
+	df[time_cats] = df[times] // 60 // minutes_per_time_cat
+
+
+--------------------------------------------------------------------------------
+Miscellaneous
+Data Dictionary
+Lat/Long -> WGS 1984 (4326)
+X/Y -> State Plane NAD83 (2913)
+
+Init Codes
+NOM_BLOCK.SHORT_NAME is our TRAIN (BLOCK)
+VEH_STOP.POINT_ID is our LOCATION_ID
+VEH_TRIP.LINE_ID is our ROUTE_NUMBER
+VEH_TRIP.TRIP_CODE is our TRIP_ID
+
+Init Table Mapping
+VEH_CYCLIC.EVENT_NO_STOP joins to VEH_STOP.EVENT_NO
+VEH_CYCLIC.EVENT_NO_TRIP joins to VEH_TRIP.EVENT_NO
+VEH_TRIP.BLOCK_ID joins to NOM_BLOCK.BLOCK_ID
+
+VEH_STOP.STOP_TYPE enumeration:
+0,5 – Stop
+2 – Unplanned door open
+3 – Disturbance stop (dwell)
+4,6 – Drive thru (passed by stop but did not serve it)
+7 – Timepoint (not a stop)
+
+Also, schedule data can be found here: http://gtfs.transitq.com/
