@@ -30,11 +30,12 @@ def make_categories(make_category, df):
 def flatten(t):
     return [item for sublist in t for item in sublist]
 
-def plot(r, l, preds, labels):
+def plot(l, r, preds, labels, width=20, height=7):
     assert len(preds) == len(labels)
-    preds = preds[r:l]
-    labels = labels[r:l]
+    preds = preds[l:r]
+    labels = labels[l:r]
     x = list(range(len(preds)))
+    plt.rcParams["figure.figsize"] = [width, height]
     plt.scatter(x, labels, label="labels")
     plt.scatter(x, preds, label="predictions")
     plt.legend()
@@ -48,3 +49,7 @@ def allDone():
             autoplay=True,
         )
     )
+
+def big_print(x, max_rows=None, max_cols=None):
+    with pd.option_context("display.max_rows", max_rows, "display.max_columns", max_cols):
+        print(x)
