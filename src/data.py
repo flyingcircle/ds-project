@@ -76,7 +76,7 @@ def get_transit_daily():
 def get_mega_stop() :
     data_dir = os.path.join(os.getcwd(), "..", "data")
     daily_file = os.path.join(data_dir, "mega_stop_event.hdf")
-    return pd.read_hdf(daily_file, start=0, stop=10000)
+    return pd.read_hdf(daily_file)
 
 def get_data_subset(d, n):
     d = d.head(n)

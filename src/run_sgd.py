@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 
 import data
-import svm
+import sgd
 import util
 
 start_time = time.time()
@@ -32,23 +32,23 @@ test_proj = pca.transform(test_data)
 print("sum of variance_ratio: ", np.sum(pca.explained_variance_ratio_))
 print("shape of new data: ", proj.shape)
 
-# Train SVM
+# Train SGD
 ###################
-print("Running SVM: %s\n" % (time.time() - start_time))
-model = svm.train_svm(proj, train_labels)
+print("Running SGD: %s\n" % (time.time() - start_time))
+model = sgd.train_sgd(proj, train_labels)
 results = model.predict(test_proj)
 
 # Results
 ###################
 print("Results: %s\n" % (time.time() - start_time))
-util.plot(69,420,results,test_labels, filename="svm_results.png")
+util.plot(69,420,results,test_labels, filename="sgd_results.png")
 print("MAE: ", metrics.mean_absolute_error(test_labels,results))
 print("MSE: ", metrics.mean_squared_error(test_labels,results))
 print("R2: ", metrics.r2_score(test_labels,results))
 
 # Write Results
 ###################
-file = open("../results/svm_results.csv", "w")
+file = open("../results/sgd_results.csv", "w")
 writer = csv.writer(file)
 for w in range(results.shape[0]):
   writer.writerow([results[w], test_labels[w]])

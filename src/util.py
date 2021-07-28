@@ -30,7 +30,7 @@ def make_categories(make_category, df):
 def flatten(t):
     return [item for sublist in t for item in sublist]
 
-def plot(r, l, preds, labels):
+def plot(r, l, preds, labels, filename:str="unamed_plot.png"):
     assert len(preds) == len(labels)
     preds = preds[r:l]
     labels = labels[r:l]
@@ -38,7 +38,8 @@ def plot(r, l, preds, labels):
     plt.scatter(x, labels, label="labels")
     plt.scatter(x, preds, label="predictions")
     plt.legend()
-    plt.show()
+    #plt.show()
+    plt.savefig('../results/' + filename)
     
 def allDone():
     url_done = "https://www.myinstants.com/media/sounds/magic_immune.mp3"
