@@ -1,0 +1,122 @@
+Content-type: application/octet-stream
+Content-type: application/octet-stream
+Content-disposition: attachment; filename=transit_data_input.csv
+
+Occam (Portland State University)
+Version 3.4.0
+Sat Jul 24 20:23:47 2021
+
+Subject line:,OCCAM Search 6 - All Model level increase 2
+Warning: input data cardinality for variable schedule_status (Scs) is 5, but was specified as 6. The lower value will be used.
+Option settings:
+nominal,id, 517627, 0, Id
+nominal,arrival_time, 76382,0, At
+nominal,departure_time, 76467, 0, Dt
+nominal,door, 2, 1, Do
+nominal,lift, 2, 1, L
+nominal,ons, 3, 1, On
+nominal,offs, 3, 1, Off
+nominal,estimated_load, 5, 1, El
+nominal,dwell, 3, 1, Dw
+nominal,maximum_speed, 6, 1, Ms
+nominal,schedule_status, 6, 1, ScS
+nominal,service_key, 4, 1, Sk
+nominal,trip_id, 1245, 0, Tid
+nominal,deviance, 15, 1, Dev
+nominal,seconds_stopped, 6, 1, Ss
+nominal,next_dev, 15, 2, Nd
+no-frequency,Y
+ipf-maxdev,           0.2
+ipf-maxit,           266
+Data Lines Read	507236
+Alpha threshold	0.05
+Input data file,transit_data_input.txt
+Starting model,bottom
+Search direction,up
+Ref model,bottom
+Models to consider,all
+Search width,3
+Search levels,13
+Search sort by,bic
+Search preference,descending
+Report sort by,information
+Report preference,descending
+
+    State Space Size,8.748e+07
+    Sample Size,  507236
+    H(data), 13.2864
+    H(IV), 12.1106
+    H(DV),  3.1868
+    T(IV:DV), 2.01097
+    IVs in use (11), Do L On Off El Dw Ms Scs Sk Dev Ss
+    DV,Nd
+
+Searching levels:
+1 : 11 new models, 3 kept; 12 total models, 4 total kept; 0 kb memory used;  0.1 seconds, 0.1 total
+2 : 27 new models, 3 kept; 39 total models, 7 total kept; 44820 kb memory used;  1141.4 seconds, 1141.5 total
+3 : 27 new models, 3 kept; 66 total models, 10 total kept; 80300 kb memory used;  3180.5 seconds, 4322.0 total
+4 : 28 new models, 3 kept; 94 total models, 13 total kept; 116892 kb memory used;  3445.5 seconds, 7767.6 total
+5 : 33 new models, 3 kept; 127 total models, 16 total kept; 153488 kb memory used;  5529.6 seconds, 13297.2 total
+6 : 33 new models, 3 kept; 160 total models, 19 total kept; 184088 kb memory used;  4762.0 seconds, 18059.2 total
+7 : 42 new models, 3 kept; 202 total models, 22 total kept; 216656 kb memory used;  6794.4 seconds, 24853.6 total
+8 : 54 new models, 3 kept; 256 total models, 25 total kept; 249132 kb memory used;  11377.9 seconds, 36231.5 total
+9 : 57 new models, 3 kept; 313 total models, 28 total kept; 283144 kb memory used;  13898.4 seconds, 50129.9 total
+10 : 60 new models, 3 kept; 373 total models, 31 total kept; 315648 kb memory used;  13991.8 seconds, 64121.7 total
+11 : 63 new models, 3 kept; 436 total models, 34 total kept; 351432 kb memory used;  18942.1 seconds, 83063.8 total
+12 : 68 new models, 3 kept; 504 total models, 37 total kept; 388016 kb memory used;  20428.0 seconds, 103491.8 total
+13 : 79 new models, 3 kept; 583 total models, 40 total kept; 426740 kb memory used;  24674.6 seconds, 128166.5 total
+
+ID,MODEL,Level,H,dDF,dLR,Alpha,Inf,%dH(DV),dAIC,dBIC,Inc.Alpha,Prog.,%C(Data),%cover
+40 ,IV:DoDwNd:DoMsNd:DoScsNd:LNd:OnNd:OffNd:ElNd:ScsDevNd,      13,     13.4821,          1428,1276442.3771,      0.0000,0.90267286,     56.9614,1273586.3771,1257683.1243,      0.0000,            35,     65.8045,      5.5465
+39*,IV:DoDwNd:DoMsNd:DoScsNd:OnNd:OffNd:ElNd:ScsDevNd,      12,     13.4822,          1414,1276425.1435,      0.0000,0.90266067,     56.9606,1273597.1435,1257849.8050,      0.0000,            34,     65.8043,      9.5975
+38*,IV:DoMsNd:DoScsNd:OnNd:OffNd:ScsDevNd:SsNd,      10,     13.4827,          1372,1276059.1615,      0.0000,0.90240185,     56.9443,1273315.1615,1258035.5657,      0.0000,            28,     65.7840,     14.3292
+37 ,IV:DoDwNd:DoMsNd:DoScsNd:LDwNd:OnNd:OffNd:ScsDevNd,      13,     13.4829,          1400,1275930.3952,      0.0000,0.90231079,     56.9386,1273130.3952,1257538.9709,      0.1939,            35,     65.8096,     10.3333
+36 ,IV:DoLNd:DoDwNd:DoMsNd:DoScsNd:OnNd:OffNd:ScsDevNd,      13,     13.4829,          1386,1275905.9016,      0.0000,0.90229347,     56.9375,1273133.9016,1257698.3915,      0.0000,            33,     65.8092,     10.3333
+35 ,IV:DoDwNd:DoMsNd:DoScsNd:LNd:OnNd:OffNd:ScsDevNd,      12,     13.4829,          1372,1275896.1923,      0.0000,0.90228661,     56.9370,1273152.1923,1257872.5964,      0.0000,            32,     65.8092,     10.3333
+34*,IV:DoDwNd:DoMsNd:DoScsNd:OnNd:OffNd:ScsDevNd,      11,     13.4829,          1358,1275878.3947,      0.0000,0.90227402,     56.9362,1273162.3947,1258038.7131,      0.0000,            31,     65.8086,     16.5679
+33 ,IV:DoLNd:DoMsNd:DoScsNd:OnNd:OffNd:DwNd:ScsDevNd,      12,     13.4834,          1358,1275565.2600,      0.0000,0.90205258,     56.9223,1272849.2600,1257725.5784,      0.0000,            30,     65.8043,     10.3333
+32 ,IV:DoMsNd:DoScsNd:LNd:OnNd:OffNd:DwNd:ScsDevNd,      11,     13.4834,          1344,1275554.8525,      0.0000,0.90204522,     56.9218,1272866.8525,1257899.0852,      0.0000,            29,     65.8043,     10.3333
+31*,IV:DoMsNd:DoScsNd:OnNd:OffNd:DwNd:ScsDevNd,      10,     13.4834,          1330,1275539.8730,      0.0000,0.90203462,     56.9211,1272879.8730,1258068.0199,      0.0000,            28,     65.8037,     16.5679
+30 ,IV:DoLNd:DoMsNd:DoScsNd:OnNd:OffNd:ScsDevNd,      11,     13.4837,          1330,1275352.3971,      0.0000,0.90190205,     56.9128,1272692.3971,1257880.5440,      0.5396,            29,     65.7956,     19.2160
+29 ,IV:DoMsNd:DoScsNd:LNd:OnNd:OffNd:ScsDevNd,      10,     13.4837,          1316,1275339.5555,      0.0000,0.90189296,     56.9122,1272707.5555,1258051.6167,      0.0000,            23,     65.7956,     19.2160
+28*,IV:DoMsNd:DoScsNd:OnNd:OffNd:ScsDevNd,       9,     13.4837,          1302,1275322.0935,      0.0000,0.90188062,     56.9114,1272718.0935,1258218.0689,      0.0000,            25,     65.7944,     28.2840
+27*,IV:DoScsNd:OnNd:OffNd:ElNd:MsNd:ScsDevNd,       9,     13.4840,          1288,1275104.4681,      0.0000,0.90172672,     56.9017,1272528.4681,1258184.3577,      0.0000,            22,     65.7990,     18.7728
+26*,IV:DoNd:OnNd:OffNd:MsNd:ScsDevNd:SsNd,       8,     13.4846,          1246,1274710.4956,      0.0000,0.90144811,     56.8841,1272218.4956,1258342.1279,      0.0000,            24,     65.7743,     14.3292
+25*,IV:DoMsNd:OnNd:OffNd:ScsDevNd,       8,     13.4847,          1246,1274672.5434,      0.0000,0.90142127,     56.8824,1272180.5434,1258304.1758,      0.0000,            19,     65.7773,     28.2840
+24*,IV:OnNd:OffNd:MsNd:ScsDevNd:SsNd,       7,     13.4848,          1232,1274571.6599,      0.0000,0.90134992,     56.8779,1272107.6599,1258387.2065,      0.0000,            18,     65.7678,     26.6132
+23 ,IV:DoScsNd:LNd:OnNd:OffNd:MsNd:ScsDevNd,       9,     13.4848,          1246,1274566.1918,      0.0000,0.90134606,     56.8777,1272074.1918,1258197.8241,      0.2037,            22,     65.7988,     19.2160
+22*,IV:DoScsNd:OnNd:OffNd:MsNd:ScsDevNd,       8,     13.4848,          1232,1274548.1363,      0.0000,0.90133329,     56.8769,1272084.1363,1258363.6829,      0.0000,            19,     65.7976,     28.2840
+21*,IV:OnNd:OffNd:DwNd:MsNd:ScsDevNd,       7,     13.4856,          1190,1274001.0060,      0.0000,0.90094637,     56.8525,1271621.0060,1258368.2953,      0.0000,            18,     65.7792,     30.3951
+20*,IV:OffNd:ElNd:MsNd:ScsDevNd,       6,     13.4857,          1190,1273927.0407,      0.0000,0.90089406,     56.8492,1271547.0407,1258294.3300,      0.0000,            16,     65.7714,     48.3407
+19*,IV:DoNd:OnNd:OffNd:MsNd:ScsDevNd,       7,     13.4857,          1176,1273913.7853,      0.0000,0.90088469,     56.8486,1271561.7853,1258464.9888,      0.0000,            17,     65.7804,     28.2840
+18*,IV:OnNd:OffNd:MsNd:ScsDevNd,       6,     13.4860,          1162,1273733.9836,      0.0000,0.90075754,     56.8405,1271409.9836,1258469.1014,      0.0000,            16,     65.7822,     49.7778
+17*,IV:DoNd:OffNd:MsNd:ScsDevNd,       6,     13.4864,          1148,1273477.5874,      0.0000,0.90057622,     56.8291,1271181.5874,1258396.6194,      0.0000,            14,     65.7706,     43.9259
+16*,IV:OffNd:MsNd:ScsDevNd,       5,     13.4866,          1134,1273313.3859,      0.0000,0.90046010,     56.8218,1271045.3859,1258416.3322,      0.0000,            11,     65.7739,     66.9630
+15*,IV:DwNd:MsNd:ScsDevNd,       5,     13.4876,          1134,1272620.0269,      0.0000,0.89996977,     56.7908,1270352.0269,1257722.9732,      0.0000,            13,     65.7751,     69.4074
+14*,IV:DoNd:MsNd:ScsDevNd,       5,     13.4877,          1120,1272499.5849,      0.0000,0.89988460,     56.7855,1270259.5849,1257786.4454,      0.0000,            10,     65.7731,     76.2222
+13*,IV:MsNd:ScsDevNd,       4,     13.4887,          1106,1271850.7080,      0.0000,0.89942573,     56.7565,1269638.7080,1257321.4828,      0.0000,            12,     65.7621,     84.6667
+12*,IV:ScsDevNd,       3,     13.4982,          1036,1265174.5328,      0.0000,0.89470448,     56.4586,1263102.5328,1251564.8788,      0.0000,             7,     65.6889,    100.0000
+11*,IV:OffNd:MsNd:ScsNd:DevNd,       4,     13.5062,           350,1259516.7447,      0.0000,0.89070341,     56.2061,1258816.7447,1254918.8887,      0.0000,             8,     65.7014,     66.9630
+10*,IV:DoNd:MsNd:ScsNd:DevNd,       4,     13.5075,           336,1258632.4978,      0.0000,0.89007809,     56.1666,1257960.4978,1254218.5559,      0.0000,             9,     65.6795,     76.2222
+9*,IV:MsNd:ScsNd:DevNd,       3,     13.5084,           322,1258003.8946,      0.0000,0.88963355,     56.1386,1257359.8946,1253773.8670,      0.0000,             6,     65.7457,     84.6667
+8*,IV:OffNd:ScsNd:DevNd,       3,     13.5144,           280,1253761.2344,      0.0000,0.88663323,     55.9493,1253201.2344,1250082.9495,      0.0000,             7,     65.6761,     91.5556
+7*,IV:ScsNd:DevNd,       2,     13.5176,           252,1251490.3896,      0.0000,0.88502734,     55.8479,1250986.3896,1248179.9332,      0.0000,             4,     65.6755,    100.0000
+6*,IV:MsNd:DevNd,       2,     13.5191,           266,1250473.3146,      0.0000,0.88430809,     55.8025,1249941.3146,1246978.9440,      0.0000,             4,     65.6716,    100.0000
+5*,IV:DevNd:SsNd,       2,     13.5236,           266,1247308.6119,      0.0000,0.88207008,     55.6613,1246776.6119,1243814.2413,      0.0000,             3,     65.6714,    100.0000
+4*,IV:DevNd,       1,     13.5260,           196,1245598.8980,      0.0000,0.88086100,     55.5850,1245206.8980,1243024.0986,      0.0000,             1,     65.6716,    100.0000
+3*,IV:SsNd,       1,     15.2700,            70,  19288.3296,      0.0000,0.01364030,      0.8607,  19148.3296,  18368.7584,      0.0000,             1,     22.0925,    100.0000
+2*,IV:DwNd,       1,     15.2754,            28,  15434.6446,      0.0000,0.01091505,      0.6888,  15378.6446,  15066.8161,      0.0000,             1,     22.0599,    100.0000
+1*,IV:Nd,       0,     15.2974,             0,      0.0000,      1.0000,0.00000000,      0.0000,      0.0000,      0.0000,      0.0000,             0,     22.0599,    100.0000
+ID,MODEL,Level,H,dDF,dLR,Alpha,Inf,%dH(DV),dAIC,dBIC,Inc.Alpha,Prog.,%C(Data),%cover
+
+
+Best Model(s) by dBIC:
+18*,IV:OnNd:OffNd:MsNd:ScsDevNd,       6,     13.4860,          1162,1273733.9836,      0.0000,0.90075754,     56.8405,1271409.9836,1258469.1014,      0.0000,            16,     65.7822,     49.7778
+Best Model(s) by dAIC:
+39*,IV:DoDwNd:DoMsNd:DoScsNd:OnNd:OffNd:ElNd:ScsDevNd,      12,     13.4822,          1414,1276425.1435,      0.0000,0.90266067,     56.9606,1273597.1435,1257849.8050,      0.0000,            34,     65.8043,      9.5975
+Best Model(s) by Information, with all Inc. Alpha < 0.05:
+39*,IV:DoDwNd:DoMsNd:DoScsNd:OnNd:OffNd:ElNd:ScsDevNd,      12,     13.4822,          1414,1276425.1435,      0.0000,0.90266067,     56.9606,1273597.1435,1257849.8050,      0.0000,            34,     65.8043,      9.5975
+
+
+Run time: 128888.727626 seconds
+
