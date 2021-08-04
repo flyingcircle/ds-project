@@ -118,7 +118,7 @@ def daily_remove_unused_columns(d):
     return d
 
 def data_transforms(d):
-    d = get_data_subset(d, 100000)
+    d = get_data_subset(d, 1000000)
     d = daily_sort(d)
     d = daily_zerofill_int_fields(d)
     d = daily_compute_times(d)
@@ -126,7 +126,7 @@ def data_transforms(d):
     d = daily_compute_deltas(d)
     d = daily_compute_avg_speed(d)
     d = daily_remove_unused_columns(d)
-    d['label'] = d.groupby('trip_id')['deviance'].shift(-1)
+    d['label'] = d.groupby('trip_id')['deviance'].shift(-5)
 #     d['label'] = d.deviance.shift(-5) # making a prediction from 5 stops previously.
     # https://stackoverflow.com/a/45745154/6293070
     d = d[~d.isin([np.nan, np.inf, -np.inf]).any(1)]
